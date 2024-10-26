@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5jbskyw35vq7"]
+
+[ext_resource type="PackedScene" uid="uid://h7lyvb4tn2gy" path="res://scenes/game/levels/basic_field.tscn" id="1_r0cmc"]
+[ext_resource type="PackedScene" uid="uid://bsai4hqxm82tn" path="res://scenes/game/characters/player/Player.tscn" id="2_a0r0n"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Field" parent="." instance=ExtResource("1_r0cmc")]
+
+[node name="Player" parent="." instance=ExtResource("2_a0r0n")]
+position = Vector2(536, 296)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(536, 296)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
