@@ -6,9 +6,9 @@ namespace TheField.Scenes.Game.Characters.Player;
 public class WalkState : IFiniteState
 {
     public const string Name = "Walk";
+    public Player Entity { get; init; }
     public string Key => Name;
     public FiniteStateMachine StateMachine { get; set; }
-    public Player Entity { get; init; }
 
     public WalkState(Player entity)
     {
@@ -27,12 +27,10 @@ public class WalkState : IFiniteState
         //Entity.Velocity = Vector2.Zero;
     }
 
-    public void Process(float delta) { }
-
     public void PhysicsProcess(float delta)
     {
         Entity.UpdatePressedKeys();
-        Vector2 inputDirection = Entity.GetDirectionFromKeys();
+        var inputDirection = Entity.GetDirectionFromKeys();
 
         if (inputDirection == Vector2.Zero)
         {
@@ -41,12 +39,16 @@ public class WalkState : IFiniteState
         else
         {
             // Update facing direction and movement
-            Entity.CurrentFacingDirection = Entity.GetFacingDirection(inputDirection); 
+            Entity.CurrentFacingDirection = Entity.GetFacingDirection(inputDirection);
             Entity.Velocity = inputDirection * Player.Speed;
 
             // Update animation blend positions
             Entity.AnimationTree.Set($"parameters/{Name}/blend_position", inputDirection);
             Entity.MoveAndSlide();
         }
+    }
+
+    public void Process(float delta)
+    {
     }
 }

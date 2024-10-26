@@ -6,10 +6,10 @@ namespace TheField.Scenes.Game.Characters.Player;
 public class IdleState : IFiniteState
 {
     public const string Name = "Idle";
-    
-    public string Key => Name;
-    
+
     public Player Entity { get; init; }
+
+    public string Key => Name;
     public FiniteStateMachine StateMachine { get; set; }
 
     public IdleState(Player entity)
@@ -30,16 +30,15 @@ public class IdleState : IFiniteState
         // No specific exit logic needed for Idle
     }
 
-    public void Process(float delta) { }
-
     public void PhysicsProcess(float delta)
     {
         Entity.UpdatePressedKeys();
-        Vector2 inputDirection = Entity.GetDirectionFromKeys();
+        var inputDirection = Entity.GetDirectionFromKeys();
 
-        if (inputDirection != Vector2.Zero)
-        {
-            Entity.StateMachine.ChangeState(WalkState.Name);
-        }
+        if (inputDirection != Vector2.Zero) Entity.StateMachine.ChangeState(WalkState.Name);
+    }
+
+    public void Process(float delta)
+    {
     }
 }
