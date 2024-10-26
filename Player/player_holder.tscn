@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://djk35nokjuyq7"]
+
+[ext_resource type="PackedScene" uid="uid://bsai4hqxm82tn" path="res://Player/Player.tscn" id="1_m8hgd"]
+
+[node name="PlayerHolder" type="Node2D"]
+y_sort_enabled = true
+position = Vector2(500, 250)
+
+[node name="Player" parent="." instance=ExtResource("1_m8hgd")]
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../../Camera2D")
