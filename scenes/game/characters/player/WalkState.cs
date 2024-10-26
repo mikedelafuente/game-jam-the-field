@@ -1,4 +1,5 @@
-﻿using TheField.Common;
+﻿using Godot;
+using TheField.Common;
 
 namespace TheField.Scenes.Game.Characters.Player;
 
@@ -11,23 +12,40 @@ public class WalkState : IFiniteState
     {
         Entity = entity;
     }
+
     public void Enter(IFiniteState previous = null)
     {
-        throw new System.NotImplementedException();
+        // Set animation to walk
+        ((AnimationNodeStateMachinePlayback)Entity.AnimationTree.Get("parameters/playback")).Travel("Walk");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        // Clear velocity when exiting Walk state
+        Entity.Velocity = Vector2.Zero;
     }
 
-    public void Process(float delta)
-    {
-        throw new System.NotImplementedException();
-    }
+    public void Process(float delta) { }
 
     public void PhysicsProcess(float delta)
     {
-        throw new System.NotImplementedException();
+        Entity.UpdatePressedKeys();
+        Vector2 inputDirection = Entity.GetDirectionFromKeys();
+
+        if (inputDirection == Vector2.Zero)
+        {
+            Entity.FSM.ChangeState("Idle");
+        }
+        else
+        {
+            // Update facing direction and movement
+            Entity.CurrentDirection = Entity.GetFacingDirection(inputDirection);
+            Entity.LastMoveDirection = inputDirection;
+            Entity.Velocity = inputDirection * Player.Speed;
+
+            // Update animation blend positions
+            Entity.AnimationTree.Set("parameters/Walk/blend_position", inputDirection);
+            Entity.MoveAndSlide();
+        }
     }
 }

@@ -6,69 +6,38 @@ namespace TheField.Scenes.Game.Characters.Player;
 
 public partial class Player : CharacterBody2D
 {
-    enum PlayerState
-    {
-        Idle,
-        Walk
-    }
-
-    enum FacingDirection
+    public enum FacingDirection
     {
         Up,
         Down,
         Left,
         Right
     }
-    
-    private AnimationTree _animationTree;
-    private AnimationPlayer _animationPlayer;
-    private Vector2 _lastMoveDirection = Vector2.Zero;
-    private FacingDirection _currentDirection = FacingDirection.Down;
-    PlayerState _currentState = PlayerState.Idle;
-    private FiniteStateMachine _fsm = new();
+
+    internal AnimationTree AnimationTree;
+    internal Vector2 LastMoveDirection = Vector2.Zero;
+    internal FacingDirection CurrentDirection = FacingDirection.Down;
+    public FiniteStateMachine FSM { get; private set; } = new();
     public const float Speed = 32.0f;
     private List<string> _pressedKeys = new();
 
-
     public override void _Ready()
     {
-        _animationTree = GetNode<AnimationTree>("Sprite2D/AnimationPlayer/AnimationTree");
-        _animationTree.Active = true;
-        _animationPlayer = GetNode<AnimationPlayer>("Sprite2D/AnimationPlayer");
-        _fsm.Add("Idle", new IdleState(this));
-        _fsm.Add("Walk", new WalkState(this));
+        AnimationTree = GetNode<AnimationTree>("Sprite2D/AnimationPlayer/AnimationTree");
+        AnimationTree.Active = true;
+     
+        // Add states to the FSM and initialize the starting state
+        FSM.Add("Idle", new IdleState(this));
+        FSM.Add("Walk", new WalkState(this));
+        FSM.InitialiseState("Idle"); // Start in Idle state
     }
-    
+
     public override void _PhysicsProcess(double delta)
     {
-        UpdatePressedKeys();
-
-        // Determine the latest direction pressed
-        Vector2 inputDirection = GetDirectionFromKeys();
-        
-        if (inputDirection != Vector2.Zero)
-        {
-            _currentState = PlayerState.Walk;
-            _currentDirection = GetFacingDirection(inputDirection);
-            _lastMoveDirection = inputDirection;
-        }
-        else
-        {
-            _currentState = PlayerState.Idle;
-        }
-
-     
-        // Update AnimationTree parameters
-        ((AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback")).Travel(_currentState.ToString());
-        _animationTree.Set("parameters/Idle/blend_position", _lastMoveDirection);
-        _animationTree.Set("parameters/Walk/blend_position", inputDirection);
-
-        // Handle movement
-        Velocity = inputDirection * Speed;
-        MoveAndSlide();
+        FSM.ExecuteStatePhysics((float)delta);
     }
 
-    private void UpdatePressedKeys()
+    public void UpdatePressedKeys()
     {
         // Track individual key presses and their order
         TrackKey("ui_left");
@@ -90,7 +59,7 @@ public partial class Player : CharacterBody2D
         }
     }
 
-    private Vector2 GetDirectionFromKeys()
+    public Vector2 GetDirectionFromKeys()
     {
         // Determine direction based on the last key pressed in the list
         if (_pressedKeys.Count == 0)
@@ -107,7 +76,7 @@ public partial class Player : CharacterBody2D
         };
     }
 
-    private FacingDirection GetFacingDirection(Vector2 inputDirection)
+    public FacingDirection GetFacingDirection(Vector2 inputDirection)
     {
         if (Mathf.Abs(inputDirection.X) > Mathf.Abs(inputDirection.Y))
         {

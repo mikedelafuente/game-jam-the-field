@@ -6,31 +6,34 @@ namespace TheField.Scenes.Game.Characters.Player;
 public class IdleState : IFiniteState
 {
     public Player Entity { get; init; }
-    
     public FiniteStateMachine StateMachine { get; set; }
 
     public IdleState(Player entity)
     {
         Entity = entity;
     }
-    
+
     public void Enter(IFiniteState previous = null)
     {
-        throw new System.NotImplementedException();
+        // Set animation to idle
+        ((AnimationNodeStateMachinePlayback)Entity.AnimationTree.Get("parameters/playback")).Travel("Idle");
     }
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        // No specific exit logic needed for Idle
     }
 
-    public void Process(float delta)
-    {
-        throw new System.NotImplementedException();
-    }
+    public void Process(float delta) { }
 
     public void PhysicsProcess(float delta)
     {
-        throw new System.NotImplementedException();
+        Entity.UpdatePressedKeys();
+        Vector2 inputDirection = Entity.GetDirectionFromKeys();
+
+        if (inputDirection != Vector2.Zero)
+        {
+            Entity.FSM.ChangeState("Walk");
+        }
     }
 }
