@@ -5,6 +5,10 @@ namespace TheField.Scenes.Game.Characters.Player;
 
 public class IdleState : IFiniteState
 {
+    public const string Name = "Idle";
+    
+    public string Key => Name;
+    
     public Player Entity { get; init; }
     public FiniteStateMachine StateMachine { get; set; }
 
@@ -16,7 +20,9 @@ public class IdleState : IFiniteState
     public void Enter(IFiniteState previous = null)
     {
         // Set animation to idle
-        ((AnimationNodeStateMachinePlayback)Entity.AnimationTree.Get("parameters/playback")).Travel("Idle");
+        Entity.Velocity = Vector2.Zero;
+        Entity.AnimationTree.Set($"parameters/{Name}/blend_position", Entity.LastFacingDirection);
+        ((AnimationNodeStateMachinePlayback)Entity.AnimationTree.Get("parameters/playback")).Travel(Name);
     }
 
     public void Exit()
@@ -33,7 +39,7 @@ public class IdleState : IFiniteState
 
         if (inputDirection != Vector2.Zero)
         {
-            Entity.FSM.ChangeState("Walk");
+            Entity.StateMachine.ChangeState(WalkState.Name);
         }
     }
 }

@@ -9,9 +9,9 @@ public class FiniteStateMachine
     public string CurrentStateName {get; private set;}
     public string PreviousStateName {get; set;}
 
-    public void Add(string key, IFiniteState state)
+    public void Add(IFiniteState state)
     {
-        States[key] = state;
+        States[state.Key] = state;
         state.StateMachine = this;
     }
 

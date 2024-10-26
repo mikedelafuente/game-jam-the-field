@@ -6,20 +6,29 @@ namespace TheField.Scenes.Game.Characters.Player;
 
 public partial class Player : CharacterBody2D
 {
-    public enum FacingDirection
+    internal AnimationTree AnimationTree;
+    internal Vector2 LastFacingDirection;
+
+    internal Vector2 CurrentFacingDirection
     {
-        Up,
-        Down,
-        Left,
-        Right
+        get => _currentFacingDirection;
+        set
+        {
+            LastFacingDirection = _currentFacingDirection;
+            _currentFacingDirection = value;
+        }
     }
 
-    internal AnimationTree AnimationTree;
-    internal Vector2 LastMoveDirection = Vector2.Zero;
-    internal FacingDirection CurrentDirection = FacingDirection.Down;
-    public FiniteStateMachine FSM { get; private set; } = new();
+    public FiniteStateMachine StateMachine { get; private set; } = new();
     public const float Speed = 32.0f;
-    private List<string> _pressedKeys = new();
+    private readonly List<string> _pressedKeys = new();
+    private Vector2 _currentFacingDirection = Vector2.Down;
+
+    public Player()
+    {
+        LastFacingDirection = Vector2.Down;
+        CurrentFacingDirection = Vector2.Down;
+    }
 
     public override void _Ready()
     {
@@ -27,14 +36,14 @@ public partial class Player : CharacterBody2D
         AnimationTree.Active = true;
      
         // Add states to the FSM and initialize the starting state
-        FSM.Add("Idle", new IdleState(this));
-        FSM.Add("Walk", new WalkState(this));
-        FSM.InitialiseState("Idle"); // Start in Idle state
+        StateMachine.Add( new IdleState(this));
+        StateMachine.Add( new WalkState(this));
+        StateMachine.InitialiseState(IdleState.Name); // Start in Idle state
     }
 
     public override void _PhysicsProcess(double delta)
     {
-        FSM.ExecuteStatePhysics((float)delta);
+        StateMachine.ExecuteStatePhysics((float)delta);
     }
 
     public void UpdatePressedKeys()
@@ -76,15 +85,15 @@ public partial class Player : CharacterBody2D
         };
     }
 
-    public FacingDirection GetFacingDirection(Vector2 inputDirection)
+    public Vector2 GetFacingDirection(Vector2 inputDirection)
     {
         if (Mathf.Abs(inputDirection.X) > Mathf.Abs(inputDirection.Y))
         {
-            return inputDirection.X > 0 ? FacingDirection.Right : FacingDirection.Left;
+            return inputDirection.X > 0 ? Vector2.Right : Vector2.Left;
         }
         else
         {
-            return inputDirection.Y > 0 ? FacingDirection.Down : FacingDirection.Up;
+            return inputDirection.Y > 0 ? Vector2.Down : Vector2.Up;
         }
     }
 }
