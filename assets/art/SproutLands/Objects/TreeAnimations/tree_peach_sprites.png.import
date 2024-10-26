@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://m8ttrdglkpav"
+path="res://.godot/imported/tree_peach_sprites.png-ac8029e5325003c2c7f329dcaec16e23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Objects/TreeAnimations/tree_peach_sprites.png"
+dest_files=["res://.godot/imported/tree_peach_sprites.png-ac8029e5325003c2c7f329dcaec16e23.ctex"]
 
 [params]
 

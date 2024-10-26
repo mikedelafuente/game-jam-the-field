@@ -1,13 +1,10 @@
 using Godot;
 using System;
+using TheField.Common;
 
 public partial class Player : CharacterBody2D
 {
-    private AnimationTree animationTree;
-    private AnimationPlayer animationPlayer;
-    private Vector2 _lastMoveDirection = Vector2.Zero;
-
-    public enum PlayerState
+    enum PlayerState
     {
         Idle,
         Walk
@@ -20,48 +17,49 @@ public partial class Player : CharacterBody2D
         Left,
         Right
     }
+    
+    private AnimationTree _animationTree;
+    private AnimationPlayer _animationPlayer;
+    private Vector2 _lastMoveDirection = Vector2.Zero;
+    private FacingDirection _currentDirection = FacingDirection.Down;
+    PlayerState _currentState = PlayerState.Idle;
 
-    [Export] public string CurrentPlayerState = "walk";
-
-    public PlayerState State = PlayerState.Idle;
-    private FacingDirection currentDirection = FacingDirection.Down;
     public const float Speed = 32.0f;
 
     public override void _Ready()
     {
-        animationTree = GetNode<AnimationTree>("Sprite2D/AnimationPlayer/AnimationTree");
-        animationTree.Active = true;
-        animationPlayer = GetNode<AnimationPlayer>("Sprite2D/AnimationPlayer");
+        _animationTree = GetNode<AnimationTree>("Sprite2D/AnimationPlayer/AnimationTree");
+        _animationTree.Active = true;
+        _animationPlayer = GetNode<AnimationPlayer>("Sprite2D/AnimationPlayer");
     }
-
+    
     public override void _PhysicsProcess(double delta)
     {
         Vector2 inputDirection = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down").Normalized();
 
         if (inputDirection != Vector2.Zero)
         {
-            State = PlayerState.Walk;
-            currentDirection = GetFacingDirection(inputDirection);
+            _currentState = PlayerState.Walk;
+            _currentDirection = GetFacingDirection(inputDirection);
             _lastMoveDirection = inputDirection;
         }
         else
         {
-            State = PlayerState.Idle;
+            _currentState = PlayerState.Idle;
         }
 
-        if (currentDirection is FacingDirection.Up or FacingDirection.Down)
+        if (_currentDirection is FacingDirection.Up or FacingDirection.Down)
         {
             inputDirection = new Vector2(0, inputDirection.Y);
         }
-        else if (currentDirection is FacingDirection.Left or FacingDirection.Right)
+        else if (_currentDirection is FacingDirection.Left or FacingDirection.Right)
         {
             inputDirection = new Vector2(inputDirection.X, 0);
         }
         // Update AnimationTree parameters
-
-        ((AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback")).Travel(State.ToString());
-        animationTree.Set("parameters/Idle/blend_position", _lastMoveDirection);
-        animationTree.Set("parameters/Walk/blend_position", inputDirection);
+        ((AnimationNodeStateMachinePlayback)_animationTree.Get("parameters/playback")).Travel(_currentState.ToString());
+        _animationTree.Set("parameters/Idle/blend_position", _lastMoveDirection);
+        _animationTree.Set("parameters/Walk/blend_position", inputDirection);
 
         // Handle movement
         Velocity = inputDirection * Speed;
@@ -79,4 +77,16 @@ public partial class Player : CharacterBody2D
             return inputDirection.Y > 0 ? FacingDirection.Down : FacingDirection.Up;
         }
     }
+
+    public FiniteStateMachine StateMachine { get; set; }
+    public void Enter(IFiniteState previous = null)
+    {
+        throw new NotImplementedException();
+    }
+
+    public void Exit()
+    {
+        throw new NotImplementedException();
+    }
+    
 }

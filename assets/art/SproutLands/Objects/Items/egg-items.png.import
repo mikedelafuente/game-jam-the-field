@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://ils12h52i10u"
+path="res://.godot/imported/egg-items.png-1a9b389440b8ed3400e40913bf8fa0bb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Objects/Items/egg-items.png"
+dest_files=["res://.godot/imported/egg-items.png-1a9b389440b8ed3400e40913bf8fa0bb.ctex"]
 
 [params]
 

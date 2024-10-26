@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://d348fevobkbkq"
+path="res://.godot/imported/Free Cow Sprites.png-77e4a1128ae07f396df0c9c143dac504.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Animals/Cow/Free Cow Sprites.png"
+dest_files=["res://.godot/imported/Free Cow Sprites.png-77e4a1128ae07f396df0c9c143dac504.ctex"]
 
 [params]
 

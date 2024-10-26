@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://bnx2qujehdqip"
+path="res://.godot/imported/baby green cow animations sprites.png-0d22a2727ab5d97a88c696c8601d9a71.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Animals/CowBaby/baby green cow animations sprites.png"
+dest_files=["res://.godot/imported/baby green cow animations sprites.png-0d22a2727ab5d97a88c696c8601d9a71.ctex"]
 
 [params]
 

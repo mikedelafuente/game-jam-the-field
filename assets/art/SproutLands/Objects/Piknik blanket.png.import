@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://ccj3hd1j3aj3i"
+path="res://.godot/imported/Piknik blanket.png-68cff5195c9905df3dbf672a54e2b3dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Objects/Piknik blanket.png"
+dest_files=["res://.godot/imported/Piknik blanket.png-68cff5195c9905df3dbf672a54e2b3dd.ctex"]
 
 [params]
 

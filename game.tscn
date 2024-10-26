@@ -1,11 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://b5jbskyw35vq7"]
 
-[ext_resource type="PackedScene" uid="uid://h7lyvb4tn2gy" path="res://scenes/game/levels/basic_field.tscn" id="1_r0cmc"]
-[ext_resource type="PackedScene" uid="uid://bsai4hqxm82tn" path="res://scenes/game/characters/player/Player.tscn" id="2_a0r0n"]
+[ext_resource type="PackedScene" uid="uid://h7lyvb4tn2gy" path="res://Scenes/Game/Levels/basic_field.tscn" id="1_r0cmc"]
+[ext_resource type="PackedScene" uid="uid://bsai4hqxm82tn" path="res://Scenes/Game/Characters/Player/Player.tscn" id="2_a0r0n"]
 
 [node name="Game" type="Node2D"]
 
 [node name="Field" parent="." instance=ExtResource("1_r0cmc")]
+position = Vector2(0, -24)
 
 [node name="Player" parent="." instance=ExtResource("2_a0r0n")]
 position = Vector2(536, 296)

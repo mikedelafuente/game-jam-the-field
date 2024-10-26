@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://cdwvsnw8njja2"
+path="res://.godot/imported/Bush_Tiles.png-1b5f547c078afceae5b592f14be54616.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Tilesets/GroundTiles/New tiles/Bush_Tiles.png"
+dest_files=["res://.godot/imported/Bush_Tiles.png-1b5f547c078afceae5b592f14be54616.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://drufu0i1o0m7d"
+path="res://.godot/imported/tree_appel_sprites.png-95fcce5893de9d57c4059cf779865acb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Objects/TreeAnimations/tree_appel_sprites.png"
+dest_files=["res://.godot/imported/tree_appel_sprites.png-95fcce5893de9d57c4059cf779865acb.ctex"]
 
 [params]
 

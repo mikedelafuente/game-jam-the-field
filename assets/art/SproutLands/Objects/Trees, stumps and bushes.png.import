@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://dorxsk12nnsvs"
+path="res://.godot/imported/Trees, stumps and bushes.png-fbad1b7f699f5d15b12e8cc27b71e5ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Objects/Trees, stumps and bushes.png"
+dest_files=["res://.godot/imported/Trees, stumps and bushes.png-fbad1b7f699f5d15b12e8cc27b71e5ff.ctex"]
 
 [params]
 

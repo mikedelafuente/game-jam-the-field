@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://botx82ahf3m0k"
+path="res://.godot/imported/Stone_Path.png-02d7b83bc8f6b67cb5b363105f47c04d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Tilesets/BuildingParts/Stone_Path.png"
+dest_files=["res://.godot/imported/Stone_Path.png-02d7b83bc8f6b67cb5b363105f47c04d.ctex"]
 
 [params]
 

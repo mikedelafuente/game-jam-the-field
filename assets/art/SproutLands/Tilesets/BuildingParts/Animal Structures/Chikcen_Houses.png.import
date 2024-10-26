@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://37a6yyb6so0r"
+path="res://.godot/imported/Chikcen_Houses.png-4a1c4cf435494f3763601ff52bdbdbcf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Tilesets/BuildingParts/Animal Structures/Chikcen_Houses.png"
+dest_files=["res://.godot/imported/Chikcen_Houses.png-4a1c4cf435494f3763601ff52bdbdbcf.ctex"]
 
 [params]
 

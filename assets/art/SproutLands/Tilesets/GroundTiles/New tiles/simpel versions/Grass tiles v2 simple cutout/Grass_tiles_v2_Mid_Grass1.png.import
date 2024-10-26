@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hjraq6irgln"
-path="res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"
+uid="uid://bjmbvgjy5xob7"
+path="res://.godot/imported/Grass_tiles_v2_Mid_Grass1.png-0dc09d621ce959dd5fe2bceac79bda41.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Art/Tiles/landscape.png"
-dest_files=["res://.godot/imported/landscape.png-a5a803c0a0c41053b6ef3b537eeecd47.ctex"]
+source_file="res://Assets/Art/SproutLands/Tilesets/GroundTiles/New tiles/simpel versions/Grass tiles v2 simple cutout/Grass_tiles_v2_Mid_Grass1.png"
+dest_files=["res://.godot/imported/Grass_tiles_v2_Mid_Grass1.png-0dc09d621ce959dd5fe2bceac79bda41.ctex"]
 
 [params]
 
