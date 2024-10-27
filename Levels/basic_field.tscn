@@ -126,6 +126,7 @@ tile_set = SubResource("TileSet_c1gnb")
 
 [node name="Props" type="TileMapLayer" parent="."]
 y_sort_enabled = true
+position = Vector2(-8, 8)
 tile_map_data = PackedByteArray("AAAcABIAAAAAAAMAAAAgABIAAAAAAAIAAAAeABIAAAAAAAAAAAAiABIAAAAAAAEAAAA=")
 tile_set = SubResource("TileSet_n0q1h")
 rendering_quadrant_size = 48
