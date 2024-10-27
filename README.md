@@ -1,6 +1,11 @@
 # game-jam-the-field
 The Field: Manage a field to attract animals and build an ecosystem
 
+## The Idea
+Create a field that has a single bunny in it. Put plants in the field to attract more animals.
+
+
+
 ## The story
 Jose comes home from the city after his father has passed away - years after losing his mother. 
 He arrives at a field with his father's ashes and a note to spread them under his father's favorite tree.
@@ -24,11 +29,8 @@ It is about slowing down and taking moments to appreciate where you came from.
 
 
 
-
-## The Idea
-Create a field that has a single bunny in it. Put plants in the field to attract more animals.
-
 Loop:
+	- A dog is used to dig up, sniff and discover.
 	- Create plants that attract animals
 	- Animals eat what is growing
 	- Provide possible water sources

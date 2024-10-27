@@ -1,18 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://b5jbskyw35vq7"]
+[gd_scene load_steps=5 format=3 uid="uid://b5jbskyw35vq7"]
 
 [ext_resource type="PackedScene" uid="uid://h7lyvb4tn2gy" path="res://Levels/basic_field.tscn" id="1_r0cmc"]
 [ext_resource type="PackedScene" uid="uid://djk35nokjuyq7" path="res://Player/player_holder.tscn" id="2_6juhq"]
+[ext_resource type="Script" path="res://Scripts/Camera2d.cs" id="3_3hwvw"]
+[ext_resource type="PackedScene" uid="uid://b6gd4n634we63" path="res://Pickups/ball.tscn" id="3_nnskl"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
 
-[node name="PlayerHolder" parent="." instance=ExtResource("2_6juhq")]
-position = Vector2(488, 288)
-
 [node name="Field" parent="." instance=ExtResource("1_r0cmc")]
-position = Vector2(16, -32)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(488, 288)
-zoom = Vector2(4, 4)
+position = Vector2(467, 335)
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
+script = ExtResource("3_3hwvw")
+
+[node name="Ball" parent="." instance=ExtResource("3_nnskl")]
+y_sort_enabled = true
+position = Vector2(448, 336)
+
+[node name="PlayerHolder" parent="." instance=ExtResource("2_6juhq")]
+position = Vector2(467, 335)
+
+[node name="RemoteTransform2D" parent="PlayerHolder/Player" index="2"]
+remote_path = NodePath("../../../Camera2D")
+
+[editable path="PlayerHolder"]

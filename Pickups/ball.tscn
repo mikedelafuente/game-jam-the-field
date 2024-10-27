@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6gd4n634we63"]
+
+[ext_resource type="Texture2D" uid="uid://b3a6x4vwinv8j" path="res://Assets/Art/Objects/Ball_Roll.png" id="1_0iy4l"]
+[ext_resource type="Texture2D" uid="uid://co6ef3adrwbsx" path="res://Assets/Art/Objects/Ball_Shadow.png" id="1_nkdg5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yubu"]
+size = Vector2(16, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amlnt"]
+atlas = ExtResource("1_0iy4l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c4s7"]
+atlas = ExtResource("1_0iy4l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orj72"]
+atlas = ExtResource("1_0iy4l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0caa6"]
+atlas = ExtResource("1_0iy4l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xcww5"]
+atlas = ExtResource("1_0iy4l")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1udrx"]
+atlas = ExtResource("1_0iy4l")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghtu1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amlnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c4s7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orj72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0caa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xcww5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1udrx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Ball" type="Node2D"]
+position = Vector2(500, 250)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="AtRestCollision" type="CollisionShape2D" parent="RigidBody2D"]
+y_sort_enabled = true
+position = Vector2(0, -1)
+scale = Vector2(0.25, 0.25)
+shape = SubResource("RectangleShape2D_6yubu")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(-1, -0.399994)
+scale = Vector2(0.25, 0.087)
+texture = ExtResource("1_nkdg5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
+position = Vector2(0, -2)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_ghtu1")
+frame_progress = 0.471876
