@@ -1,0 +1,131 @@
+[gd_scene load_steps=19 format=3 uid="uid://bk8w3qswb10kb"]
+
+[ext_resource type="Texture2D" uid="uid://dqtioalfnlpau" path="res://Assets/Art/Objects/Dirt_Hole.png" id="1_b6l2m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3q0q0"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qycjd"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h52b3"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivoju"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yplg2"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owvuk"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3gqk"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7nqj"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5dkh"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_advio"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7f2g"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3tf5"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2hx3"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iadi5"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcb7a"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(224, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ypl2"]
+atlas = ExtResource("1_b6l2m")
+region = Rect2(240, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wxdbo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3q0q0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qycjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h52b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivoju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yplg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owvuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3gqk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q7nqj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5dkh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_advio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7f2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3tf5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2hx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iadi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcb7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ypl2")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="DirtHole" type="Node2D"]
+position = Vector2(494, 329)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_wxdbo")
+frame = 15
+frame_progress = 1.0

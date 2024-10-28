@@ -1,18 +1,18 @@
 ﻿using Godot;
 using TheField.Common;
 
-namespace TheField.Characters.Player;
+namespace TheField.Player;
 
 public class IdleState : IFiniteState
 {
     public const string Name = "Idle";
 
-    public TheField.Characters.Player.Player Entity { get; init; }
+    public TheField.Player.Player Entity { get; init; }
 
     public string Key => Name;
     public FiniteStateMachine StateMachine { get; set; }
 
-    public IdleState(TheField.Characters.Player.Player entity)
+    public IdleState(TheField.Player.Player entity)
     {
         Entity = entity;
     }
@@ -20,6 +20,7 @@ public class IdleState : IFiniteState
     public void Enter(IFiniteState previous = null)
     {
         // Set animation to idle
+        Entity.DustEmitter.Emitting = false;
         Entity.Velocity = Vector2.Zero;
         Entity.AnimationTree.Set($"parameters/{Name}/blend_position", Entity.LastFacingDirection);
         ((AnimationNodeStateMachinePlayback)Entity.AnimationTree.Get("parameters/playback")).Travel(Name);

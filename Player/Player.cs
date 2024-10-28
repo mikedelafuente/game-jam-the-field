@@ -2,12 +2,13 @@ using System.Collections.Generic;
 using Godot;
 using TheField.Common;
 
-namespace TheField.Characters.Player;
+namespace TheField.Player;
 
 public partial class Player : CharacterBody2D
 {
     public const float Speed = 32.0f;
-
+    public GpuParticles2D DustEmitter { get; private set; }
+    
     private readonly List<string> _pressedKeys = new();
     private Vector2 _currentFacingDirection = Vector2.Down;
 
@@ -40,9 +41,12 @@ public partial class Player : CharacterBody2D
 
     public override void _Ready()
     {
+        
         AnimationTree = GetNode<AnimationTree>("Sprite2D/AnimationPlayer/AnimationTree");
         AnimationTree.Active = true;
 
+        DustEmitter = GetNode<GpuParticles2D>("DustEmitter");
+        
         // Add states to the FSM and initialize the starting state
         StateMachine.Add(new IdleState(this));
         StateMachine.Add(new WalkState(this));

@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace TheField.Scripts;
 
 public partial class Camera2d : Camera2D
 {
